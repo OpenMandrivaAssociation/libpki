@@ -12,6 +12,7 @@ Group:		System/Libraries
 Source0:	libpki-%{version}.tar.gz
 Patch0:		libpki-0.3.0-strfmt.diff
 Patch1:		libpki-0.3.0-version-info_only.diff
+Patch2:		libpki-0.3.0-etc_issue_fix.diff
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -56,6 +57,7 @@ This package contains the development files for the PKI library.
 %setup -q
 %patch0 -p0
 %patch1 -p0
+%patch2 -p0
 
 # fix strange perms
 find . -type d -exec chmod 755 {} \;
