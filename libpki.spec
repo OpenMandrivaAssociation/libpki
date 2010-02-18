@@ -5,7 +5,7 @@
 Summary:	OpenCA PKI development library
 Name:		libpki
 Version:	0.3.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2
 URL:		http://www.openca.org/projects/libpki
 Group:		System/Libraries
