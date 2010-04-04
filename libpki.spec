@@ -67,6 +67,7 @@ find . -type f -exec chmod 644 {} \;
 
 %build
 mkdir -p m4
+rm -f configure
 autoreconf -fi
 %configure2_5x
 %make
