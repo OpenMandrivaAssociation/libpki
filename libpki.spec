@@ -4,8 +4,8 @@
 
 Summary:	OpenCA PKI development library
 Name:		libpki
-Version:	0.3.0
-Release:	%mkrel 2
+Version:	0.4.1
+Release:	%mkrel 1
 License:	GPLv2
 URL:		http://www.openca.org/projects/libpki
 Group:		System/Libraries
@@ -13,6 +13,7 @@ Source0:	libpki-%{version}.tar.gz
 Patch0:		libpki-0.3.0-strfmt.diff
 Patch1:		libpki-0.3.0-version-info_only.diff
 Patch2:		libpki-0.3.0-etc_issue_fix.diff
+Patch3:		libpki-0.4.1-strfmt.diff
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -58,10 +59,11 @@ This package contains the development files for the PKI library.
 %patch0 -p0
 %patch1 -p0
 %patch2 -p0
+%patch3 -p1
 
 # fix strange perms
 find . -type d -exec chmod 755 {} \;
-find . -type f -exec chmod 755 {} \;
+find . -type f -exec chmod 644 {} \;
 
 %build
 mkdir -p m4
@@ -94,6 +96,8 @@ rm -rf %{buildroot}
 
 %files tools
 %defattr(-,root,root)
+%{_bindir}/pki-query
+%{_bindir}/pki-request
 %{_bindir}/pki-tool
 %{_bindir}/pki-xpair
 %{_bindir}/url-tool
