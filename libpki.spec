@@ -1,10 +1,10 @@
-%define	major 5
+%define	major 6
 %define	libname %mklibname pki %{major}
 %define develname %mklibname pki -d
 
 Summary:	OpenCA PKI development library
 Name:		libpki
-Version:	0.5.1
+Version:	0.6.1
 Release:	%mkrel 1
 License:	GPLv2
 URL:		http://www.openca.org/projects/libpki
@@ -126,4 +126,3 @@ rm -rf %{buildroot}
 %{_libdir}/*.so
 %{_libdir}/*.*a
 %{_libdir}/pkgconfig/libpki.pc
-
