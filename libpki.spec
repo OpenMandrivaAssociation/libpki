@@ -1,16 +1,15 @@
-%define	major 6
+%define	major 10
 %define	libname %mklibname pki %{major}
 %define develname %mklibname pki -d
 
 Summary:	OpenCA PKI development library
 Name:		libpki
-Version:	0.6.1
+Version:	0.6.4
 Release:	%mkrel 1
 License:	GPLv2
 URL:		http://www.openca.org/projects/libpki
 Group:		System/Libraries
 Source0:	libpki-%{version}.tar.gz
-Patch0:		libpki-0.3.0-strfmt.diff
 Patch1:		libpki-0.3.0-etc_issue_fix.diff
 Patch2:		libpki-0.4.1-strfmt.diff
 Patch3:		libpki-0.4.1-fix-link.patch
@@ -56,7 +55,6 @@ This package contains the development files for the PKI library.
 %prep
 
 %setup -q
-%patch0 -p0
 %patch1 -p0
 %patch2 -p1
 %patch3 -p0
@@ -97,6 +95,8 @@ rm -rf %{buildroot}
 
 %files tools
 %defattr(-,root,root)
+%{_bindir}/pki-cert
+%{_bindir}/pki-crl
 %{_bindir}/pki-query
 %{_bindir}/pki-request
 %{_bindir}/pki-tool
