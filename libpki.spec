@@ -1,11 +1,11 @@
 %define	major 10
 %define	libname %mklibname pki %{major}
-%define develname %mklibname pki -d
+%define devname %mklibname pki -d
 
 Summary:	OpenCA PKI development library
 Name:		libpki
-Version:	0.6.4
-Release:	%mkrel 1
+Version:	0.6.7
+Release:	1
 License:	GPLv2
 URL:		http://www.openca.org/projects/libpki
 Group:		System/Libraries
@@ -13,16 +13,13 @@ Source0:	libpki-%{version}.tar.gz
 Patch1:		libpki-0.3.0-etc_issue_fix.diff
 Patch2:		libpki-0.4.1-strfmt.diff
 Patch3:		libpki-0.4.1-fix-link.patch
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool
+
 BuildRequires:	libtool-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	mysql-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	postgresql-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 OpenCA Labs' Easy to use PKI library.
@@ -41,19 +38,18 @@ Group:		System/Libraries
 %description -n	%{libname}
 This package contains the shared PKI library.
 
-%package -n	%{develname}
+%package -n	%{devname}
 Summary:	Header files, libraries and development documentation for libpki
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	pki-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n	%{develname}
+%description -n	%{devname}
 This package contains the development files for the PKI library.
 
 
 %prep
-
 %setup -q
 %patch1 -p0
 %patch2 -p1
@@ -67,12 +63,12 @@ find . -type f -exec chmod 644 {} \;
 mkdir -p m4
 rm -f configure
 autoreconf -fi
-%configure2_5x
+%configure2_5x \
+	--disable-static
+
 %make LDFLAGS="%ldflags"
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
 
 # lib64 fix
@@ -82,19 +78,7 @@ perl -pi -e "s|/usr/lib\b|%{_libdir}|g" %{buildroot}%{_bindir}/libpki-config \
 # cleanup
 rm -rf %{buildroot}%{_datadir}/libpki
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun	-n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
-
 %files tools
-%defattr(-,root,root)
 %{_bindir}/pki-cert
 %{_bindir}/pki-crl
 %{_bindir}/pki-query
@@ -104,7 +88,6 @@ rm -rf %{buildroot}
 %{_bindir}/url-tool
 
 %files -n %{libname}
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog NEWS README
 %dir %{_sysconfdir}/libpki
 %dir %{_sysconfdir}/libpki/hsm.d
@@ -119,10 +102,9 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/libpki/token.d/*.xml
 %{_libdir}/lib*.so.%{major}*
 
-%files -n %{develname}
-%defattr(-,root,root)
+%files -n %{devname}
 %{_includedir}/libpki
 %{_bindir}/libpki-config
 %{_libdir}/*.so
-%{_libdir}/*.*a
 %{_libdir}/pkgconfig/libpki.pc
+
