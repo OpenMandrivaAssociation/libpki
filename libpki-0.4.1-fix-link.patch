@@ -1,0 +1,35 @@
+--- src/tools/Makefile.am	2011-02-08 18:56:34.000000000 +0100
++++ src/tools/Makefile.am.oden	2011-02-17 12:00:02.136112003 +0100
+@@ -61,27 +61,27 @@
+ 
+ pki_tool_SOURCES = $(PKI_TOOL)
+ pki_tool_CPPFLAGS = $(BUILD_LIBPKI_CFLAGS)
+-pki_tool_LDADD = $(MYLDADD)
++pki_tool_LDADD = $(MYLDADD) $(BUILD_LIBPKI_LIBS)
+ pki_tool_LDFLAGS = $(BUILD_LIBPKI_LDFLAGS)
+ 
+ url_tool_SOURCES = $(URL_TOOL)
+ url_tool_CPPFLAGS = $(BUILD_LIBPKI_CFLAGS)
+-url_tool_LDADD = $(MYLDADD)
++url_tool_LDADD = $(MYLDADD) $(BUILD_LIBPKI_LIBS)
+ url_tool_LDFLAGS = $(BUILD_LIBPKI_LDFLAGS)
+ 
+ pki_xpair_SOURCES = $(XPAIR_TOOL)
+ pki_xpair_CPPFLAGS = $(BUILD_LIBPKI_CFLAGS)
+-pki_xpair_LDADD = $(MYLDADD)
++pki_xpair_LDADD = $(MYLDADD) $(BUILD_LIBPKI_LIBS)
+ pki_xpair_LDFLAGS = $(BUILD_LIBPKI_LDFLAGS)
+ 
+ pki_query_SOURCES = $(PRQP_TOOL)
+ pki_query_CPPFLAGS = $(BUILD_LIBPKI_CFLAGS)
+-pki_query_LDADD = $(MYLDADD)
++pki_query_LDADD = $(MYLDADD) $(BUILD_LIBPKI_LIBS)
+ pki_query_LDFLAGS = $(BUILD_LIBPKI_LDFLAGS)
+ 
+ pki_request_SOURCES = $(REQUEST_TOOL)
+ pki_request_CPPFLAGS = $(BUILD_LIBPKI_CFLAGS)
+-pki_request_LDADD = $(MYLDADD)
++pki_request_LDADD = $(MYLDADD) $(BUILD_LIBPKI_LIBS)
+ pki_request_LDFLAGS = $(BUILD_LIBPKI_LDFLAGS)
+ 
+ pki_cert_SOURCES = $(PKI_CERT)

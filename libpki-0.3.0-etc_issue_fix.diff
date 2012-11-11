@@ -1,0 +1,11 @@
+--- configure.in	2010-08-31 01:46:36.000000000 +0200
++++ configure.in.oden	2010-09-05 13:05:44.798289793 +0200
+@@ -186,7 +186,7 @@
+ # DIST_VERSION=`bash -c 'grep -o [0-9] /etc/issue'`
+ # DIST_VERSION=`cat /etc/issue | /bin/sed -e 's/[a-zA-Z ()\\]*//g'`
+ 
+-if [[ -f "/etc/issue" ]] ; then
++if [[ -f "/etc/release" ]] ; then
+    DIST_NAME=`head -n 1 /etc/issue | cut -f 1,1 -d ' '`
+ else
+    DIST_NAME=`echo ${build_os} | $EGREP -o [[A-Za-z]]+`
