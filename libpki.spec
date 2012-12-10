@@ -111,3 +111,44 @@ rm -rf %{buildroot}%{_datadir}/libpki
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/libpki.pc
 
+
+
+%changelog
+* Wed Jun 13 2012 Matthew Dawkins <mattydaw@mandriva.org> 0.6.7-1
++ Revision: 805520
+- new version 0.6.7
+
+* Thu Feb 17 2011 Oden Eriksson <oeriksson@mandriva.com> 0.6.4-1
++ Revision: 638131
+- 0.6.4
+- fix the format string errors
+
+* Wed Nov 24 2010 Oden Eriksson <oeriksson@mandriva.com> 0.6.1-1mdv2011.0
++ Revision: 600410
+- 0.6.1
+
+* Sun Sep 05 2010 Oden Eriksson <oeriksson@mandriva.com> 0.5.1-1mdv2011.0
++ Revision: 576107
+- 0.5.1
+
+* Mon Apr 19 2010 Funda Wang <fwang@mandriva.org> 0.4.1-2mdv2010.1
++ Revision: 536668
+- build with correct flags
+
+* Sun Apr 04 2010 Oden Eriksson <oeriksson@mandriva.com> 0.4.1-1mdv2010.1
++ Revision: 531310
+- fix build
+- 0.4.1
+
+* Thu Feb 18 2010 Oden Eriksson <oeriksson@mandriva.com> 0.3.0-2mdv2010.1
++ Revision: 507487
+- rebuild
+
+* Fri Jan 29 2010 Oden Eriksson <oeriksson@mandriva.com> 0.3.0-1mdv2010.1
++ Revision: 498080
+- fix build
+- import libpki
+
+
+* Thu Jan 28 2010 Oden Eriksson <oeriksson@mandriva.com> 0.3.0-1mdv2010.0
+- initial Mandriva package
