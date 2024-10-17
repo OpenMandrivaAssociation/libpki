@@ -7,7 +7,7 @@ Name:		libpki
 Version:	0.6.7
 Release:	2
 License:	GPLv2
-URL:		http://www.openca.org/projects/libpki
+URL:		https://www.openca.org/projects/libpki
 Group:		System/Libraries
 Source0:	libpki-%{version}.tar.gz
 Patch1:		libpki-0.3.0-etc_issue_fix.diff
