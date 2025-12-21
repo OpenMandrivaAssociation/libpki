@@ -13,6 +13,11 @@ Source0:	libpki-%{version}.tar.gz
 Patch1:		libpki-0.3.0-etc_issue_fix.diff
 Patch3:		libpki-0.4.1-fix-link.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libtool-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	mysql-devel
